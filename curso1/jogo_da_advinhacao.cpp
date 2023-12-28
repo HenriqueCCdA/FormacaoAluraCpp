@@ -34,6 +34,9 @@ int main() {
     double pontos = 1000.0;
 
     for(tentativas=1; tentativas <= numero_de_tentaticas; tentativas++) {
+
+        cout << endl;
+
         int chute;
         cout << "Tentativa " << tentativas << endl;
         cout << "Qual seu chute ? ";
