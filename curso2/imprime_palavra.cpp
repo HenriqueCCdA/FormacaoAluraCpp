@@ -2,11 +2,11 @@
 #include <string>
 #include <map>
 
-string palavra_secreta;
-map<char, bool> chutou;
+std::string palavra_secreta;
+std::map<char, bool> chutou;
 
 void imprime_palavra(void) {
-    for(char letra: pavavra_secreta) {
+    for(char letra: palavra_secreta) {
         if(chutou[letra]) {
             std::cout << letra << " ";
         } else {

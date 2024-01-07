@@ -5,10 +5,24 @@
 #include<fstream>
 #include<ctime>
 #include<cstdlib>
-#include "nao_acertou.cpp"
-#include "letra_exsite.cpp"
+#include "adiciona_palavra.hpp"
+#include "chuta.hpp"
+#include "imprime_cabecalho.hpp"
+#include "imprime_errors.hpp"
+#include "imprime_palavra.hpp"
+#include "le_arquivo.hpp"
+#include "letra_existe.hpp"
+#include "nao_acertou.hpp"
+#include "nao_enforcou.hpp"
+#include "salva_arquivo.hpp"
+#include "sorteia_palavra.hpp"
+
 
 using namespace std;
+
+string palavra_secreta;
+map<char, bool> chutou;
+vector<char> chutes_errados;
 
 int main() {
 
@@ -27,7 +41,7 @@ int main() {
     }
 
     cout << "Fim de jogo!" << endl;
-    cout << "A palavra secreta era: " << pavavra_secreta << endl;
+    cout << "A palavra secreta era: " << palavra_secreta << endl;
     if(nao_acertou()) {
         cout << "Você perdeu! Tente novamente!" << endl;
     } else {

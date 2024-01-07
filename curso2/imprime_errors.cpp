@@ -1,7 +1,7 @@
 #include<vector>
 #include<iostream>
 
-std::vector<char> chutes_errados
+std::vector<char> chutes_errados;
 
 void imprime_erros(void) {
     std::cout << "Chutes errados: ";

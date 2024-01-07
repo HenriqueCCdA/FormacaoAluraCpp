@@ -1,9 +1,9 @@
 #include<string>
 
-string pavavra_secreta = "MELANCIA";
+std::string palavra_secreta = "MELANCIA";
 
 bool letra_existe(char chute) {
-    for(char letra: pavavra_secreta) {
+    for(char letra: palavra_secreta) {
         if (chute == letra) {
             return true;
         }

@@ -1,8 +1,8 @@
 #include<string>
 #include<map>
 
-string pavavra_secreta = "MELANCIA";
-map <char, bool> chutou;
+std::string pavavra_secreta = "MELANCIA";
+std::map <char, bool> chutou;
 
 bool nao_acertou(void) {
     for(char letra: pavavra_secreta) {
