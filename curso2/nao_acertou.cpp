@@ -1,11 +1,11 @@
 #include<string>
 #include<map>
 
-std::string pavavra_secreta = "MELANCIA";
-std::map <char, bool> chutou;
+extern std::string palavra_secreta;
+extern std::map <char, bool> chutou;
 
 bool nao_acertou(void) {
-    for(char letra: pavavra_secreta) {
+    for(char letra: palavra_secreta) {
         if(!chutou[letra]) {
             return true;
         }
