@@ -3,7 +3,7 @@
 
 #include "salva_arquivo.hpp"
 
-void salva_arquivo(std::vector<std::string> nova_lista) {
+void salva_arquivo(std::vector<std::string>& nova_lista) {
     std::ofstream arquivo;
     arquivo.open("palavras.txt");
     if(arquivo.is_open()){

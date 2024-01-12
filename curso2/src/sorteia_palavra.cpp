@@ -2,7 +2,6 @@
 
 #include "le_arquivo.hpp"
 
-
 std::string sorteia_palavra(void) {
     std::vector<std::string> palavras = le_arquivo();
 
