@@ -1,14 +1,21 @@
 #include "Conta.hpp"
 #include <iostream>
 
+int Conta::numeroDeContas = 0;
+
 Conta::Conta(std::string numero, std::string nomeTitular, std::string cpfTitular):
     numero(numero),
     nomeTitular(nomeTitular),
     cpfTitular(cpfTitular),
     saldo(0)
 {
+
+    numeroDeContas++;
 }
 
+Conta::~Conta() {
+    numeroDeContas--;
+}
 
 void Conta::sacar(float valorASacar)
 {
@@ -49,4 +56,17 @@ std::string Conta::recuperaNomeTitular() const
 std::string Conta::recuperaCpfTitular() const
 {
     return cpfTitular;
+}
+
+int Conta::recuperaNumeroDeContas()
+{
+    return numeroDeContas;
+}
+
+void Conta::verificaTamanhoDoNone()
+{
+    if(nomeTitular.size() < 5) {
+        std::cout << "Nome muito curto" << std::endl;
+        exit(1);
+    }
 }
