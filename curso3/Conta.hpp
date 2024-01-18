@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Titular.hpp"
 
 class Conta
 {
@@ -11,19 +12,15 @@ public:
 
 private:
     std::string numero;
-    std::string nomeTitular;
-    std::string cpfTitular;
+    Titular titular;
     float saldo;
 
 public:
-    Conta(std::string numero, std::string nomeTitular, std::string cpfTitular);
+    Conta(std::string numero, Titular titular);
     ~Conta();
     void sacar(float valorASacar);
     void depositar(float valorADepositar);
     float recuperaSaldo() const;
-    std::string recuperaNumero() const;
-    std::string recuperaNomeTitular() const;
-    std::string recuperaCpfTitular() const;
 
 private:
     void verificaTamanhoDoNone();

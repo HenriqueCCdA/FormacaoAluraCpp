@@ -3,10 +3,9 @@
 
 int Conta::numeroDeContas = 0;
 
-Conta::Conta(std::string numero, std::string nomeTitular, std::string cpfTitular):
+Conta::Conta(std::string numero, Titular titular):
     numero(numero),
-    nomeTitular(nomeTitular),
-    cpfTitular(cpfTitular),
+    titular(titular),
     saldo(0)
 {
 
@@ -41,32 +40,7 @@ float Conta::recuperaSaldo() const
     return saldo;
 }
 
-
-std::string Conta::recuperaNumero() const
-{
-    return numero;
-}
-
-std::string Conta::recuperaNomeTitular() const
-{
-    return nomeTitular;
-}
-
-
-std::string Conta::recuperaCpfTitular() const
-{
-    return cpfTitular;
-}
-
 int Conta::recuperaNumeroDeContas()
 {
     return numeroDeContas;
-}
-
-void Conta::verificaTamanhoDoNone()
-{
-    if(nomeTitular.size() < 5) {
-        std::cout << "Nome muito curto" << std::endl;
-        exit(1);
-    }
 }
