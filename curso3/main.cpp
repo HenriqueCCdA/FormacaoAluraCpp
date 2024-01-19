@@ -15,9 +15,6 @@ void ExibeSaldo(const Conta& conta)
 
 int main()
 {
-    Cpf* meuPonteiro = new Cpf("123.456.789-10");
-    cout << meuPonteiro->recuperaNumero() << endl;
-
     Conta umaConta("123456", Titular(Cpf("123.456.789-10"), "Vinicius"));
 
     umaConta.depositar(500);
