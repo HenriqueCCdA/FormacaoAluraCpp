@@ -12,4 +12,4 @@ build: $(OBJ)
 	$(CXX) -g -O0 -c $< -o $@
 
 clean:
-	rm -rvf *.o
+	rm -rvf src/*.o
