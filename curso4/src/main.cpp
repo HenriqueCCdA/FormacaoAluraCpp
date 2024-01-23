@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "Conta.hpp"
 #include "ContaPoupanca.hpp"
+#include "ContaCorrente.hpp"
 #include "Titular.hpp"
 #include "Cpf.hpp"
 #include "Funcionario.hpp"
@@ -23,17 +23,26 @@ int main()
     Titular titular(Cpf("123.456.789-10"), "Vinicius");
 
     ContaPoupanca umaConta("123456", titular);
+
     umaConta.depositar(500);
     RealizaSaque(umaConta);
-
     ExibeSaldo(umaConta);
 
+
     Titular outro(Cpf("098.765.432-10"), "Dias");
-    Conta umaOutraConta("654321", titular);
+    ContaCorrente umaOutraConta("654321", titular);
     umaOutraConta.depositar(300);
-    RealizaSaque(umaOutraConta);
+    umaOutraConta.transferePara(umaConta, 250);
 
     ExibeSaldo(umaOutraConta);
+    ExibeSaldo(umaConta);
+
+    ContaCorrente outraContaCorrente("546312", titular);
+    umaOutraConta.transferePara(outraContaCorrente, 250);
+
+    ExibeSaldo(umaOutraConta);
+    ExibeSaldo(outraContaCorrente);
+
 
     cout << "Número de contas: " << Conta::recuperaNumeroDeContas() << endl;
 
