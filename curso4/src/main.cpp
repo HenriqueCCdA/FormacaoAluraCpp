@@ -18,9 +18,18 @@ void RealizaSaque(Conta& conta)
     conta.sacar(200);
 }
 
+void FazLogin(Autenticavel& alguem, string senha)
+{
+    if(alguem.autentica(senha)) {
+        cout << "Login realizado com sucesso" << endl;
+    } else {
+        cout << "Senha inválida" << endl;
+    }
+}
+
 int main()
 {
-    Titular titular(Cpf("123.456.789-10"), "Vinicius");
+    Titular titular(Cpf("123.456.789-10"), "Vinicius", "senha");
 
     ContaPoupanca umaConta("123456", titular);
 
@@ -29,7 +38,7 @@ int main()
     ExibeSaldo(umaConta);
 
 
-    Titular outro(Cpf("098.765.432-10"), "Dias");
+    Titular outro(Cpf("098.765.432-10"), "Dias", "outrosenha");
     ContaCorrente umaOutraConta("654321", titular);
     umaOutraConta.depositar(300);
     umaOutraConta.transferePara(umaConta, 250);
@@ -43,12 +52,8 @@ int main()
     ExibeSaldo(umaOutraConta);
     ExibeSaldo(outraContaCorrente);
 
-
     cout << "Número de contas: " << Conta::recuperaNumeroDeContas() << endl;
 
-    Funcionario funcionario(Cpf("123.456.789-10"), "Dias Vinicius", 1000);
-
-    cout << "Nome do funcionário: " << funcionario.recuperaNome() << endl;
 
     return 0;
 }
