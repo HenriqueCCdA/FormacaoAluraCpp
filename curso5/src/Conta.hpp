@@ -5,6 +5,7 @@
 #include "Titular.hpp"
 #include <iostream>
 
+template <int percentualTarifa>
 class Conta
 {
 private:
@@ -26,13 +27,57 @@ public:
         ValorNegativo, SaldoInsuficiente
     };
 
-    Conta(std::string numero, Titular titular);
-    virtual ~Conta();
-    std::variant<ResultadoSaque, float> sacar(float valorASacar);
-    void depositar(float valorADepositar);
-    void operator+=(float valorADepositar);
-    bool operator<(const Conta& outra);
-    float recuperaSaldo() const;
-    virtual float taxaDeSaque() const = 0;
-    friend std::ostream& operator<<(std::ostream& cout, const Conta& conta);
+    Conta(std::string numero, Titular titular):
+        numero(numero),
+        titular(titular),
+        saldo(0)
+    {
+        numeroDeContas++;
+    };
+    virtual ~Conta()
+    {
+        std::cout << "Destrutor da conta" << std::endl;
+        numeroDeContas--;
+    };
+    std::variant<ResultadoSaque, float> sacar(float valorASacar)
+    {
+        if (valorASacar < 0) {
+            std::cout << "Não pode sacar valor negativo" << std::endl;
+            return ValorNegativo;
+        }
+
+        float tarifaDeSaque = valorASacar * percentualTarifa / 100;
+        float valorDoSaque = valorASacar + tarifaDeSaque;
+
+        if (valorDoSaque > saldo) {
+            std::cout << "Saldo insuficiente" << std::endl;
+            return SaldoInsuficiente;
+        }
+
+        saldo -= valorDoSaque;
+
+        return saldo;
+    }
+    void depositar(float valorADepositar)
+    {
+        if (valorADepositar < 0) {
+            std::cout << "Não pode sacar valor negativo" << std::endl;
+            return;
+        }
+
+        saldo += valorADepositar;
+    }
+    void operator+=(float valorADepositar)
+    {
+        depositar(valorADepositar);
+    }
+    bool operator<(const Conta& outra)
+    {
+        return this->saldo < outra.saldo;
+    }
+    float recuperaSaldo() const
+    {
+        return saldo;
+    }
+    // friend std::ostream& operator<<(std::ostream& cout, const Conta& conta);
 };

@@ -41,8 +41,8 @@ ostream& operator<<(ostream& cout, const Conta& conta)
     return cout;
 }
 
-template<typename MeuTipo>
-MeuTipo& Menor(MeuTipo& a, MeuTipo& b)
+template<typename T>
+T& Menor(T& a, T& b)
 {
     return a < b ? a: b;
 }
