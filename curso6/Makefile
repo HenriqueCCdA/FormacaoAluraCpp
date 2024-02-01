@@ -10,12 +10,12 @@ build: $(OBJ)
 %.o : %.cpp
 	$(CXX) -g -O0 -c $< -o $@
 
-test1: $(OBJ) tests/teste-avaliador.cpp
-	$(CXX) -I"src/" $^ -o tests/$@
+tests: $(OBJ) tests/teste-avaliador.cpp
+	$(CXX) -I"src/" $^ -o catch.out
 
 .PONNY: tests
-tests: test1
-	./tests/test1
+run_tests: tests
+	./catch.out
 
 
 .PONNY: clean
