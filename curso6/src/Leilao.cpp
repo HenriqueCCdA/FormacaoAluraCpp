@@ -2,7 +2,7 @@
 
 Leilao::Leilao(std::string descricao): descricao(descricao)
 {
-    
+
 }
 
 const std::vector<Lance>& Leilao::recuperaLances() const
@@ -12,5 +12,11 @@ const std::vector<Lance>& Leilao::recuperaLances() const
 
 void Leilao::recebeLance(const Lance& lance)
 {
-    lances.push_back(lance);
+    if (
+        lances.size() == 0
+        ||
+        lances.back().recuperaNomeUsuario() != lance.recuperaNomeUsuario()
+    ) {
+        lances.push_back(lance);
+    }
 }

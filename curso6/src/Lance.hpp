@@ -1,6 +1,8 @@
 #ifndef Lance_hpp
 #define Lance_hpp
+#include <string>
 #include "Usuario.hpp"
+
 
 class Lance
 {
@@ -10,6 +12,7 @@ private:
 public:
     Lance(Usuario usuario, float valor);
     float recuperaValor() const;
+    std::string recuperaNomeUsuario() const;
 };
 
 #endif /* Lance_hpp */
