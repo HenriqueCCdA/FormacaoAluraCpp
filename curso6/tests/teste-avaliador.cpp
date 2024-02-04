@@ -1,4 +1,3 @@
-#define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "Avaliador.hpp"
 
@@ -76,23 +75,4 @@ TEST_CASE("Avaliador") {
         REQUIRE(2000 == maiores3Lances[1].recuperaValor());
         REQUIRE(1500 == maiores3Lances[2].recuperaValor());
     }
-}
-
-TEST_CASE("Leilão não deve receber lnaces consecutivos do mesmo usuário") {
-
-    // Arange
-    Leilao leilao("Fiat 147 0km");
-    Usuario vinicius("Vinicius Dias");
-
-    Lance primeiroLance(vinicius, 1000);
-    Lance segundoLance(vinicius, 1500);
-
-    // Act
-    leilao.recebeLance(primeiroLance);
-    leilao.recebeLance(segundoLance);
-
-    // Assert
-    REQUIRE(1 == leilao.recuperaLances().size());
-    REQUIRE(1000 == leilao.recuperaLances()[0].recuperaValor());
-
 }

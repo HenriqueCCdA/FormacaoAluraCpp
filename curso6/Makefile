@@ -1,17 +1,18 @@
 PROJECT_NAME=leilao.out
 
 SRC=$(wildcard ./src/*.cpp)
+SRC_TEST=$(wildcard ./tests/*.cpp)
 OBJ=$(patsubst %.cpp, %.o, $(SRC))
-
+OBJ_TEST=$(patsubst %.cpp, %.o, $(SRC_TEST))
 
 build: $(OBJ)
 	$(CXX) $^ -o $(PROJECT_NAME)
 
 %.o : %.cpp
-	$(CXX) -g -O0 -c $< -o $@
+	$(CXX) -I"src/" -g -O0 -c $< -o $@
 
-tests: $(OBJ) tests/teste-avaliador.cpp
-	$(CXX) -I"src/" $^ -o catch.out
+tests: $(OBJ) $(OBJ_TEST)
+	$(CXX) $^ -o catch.out
 
 .PONNY: tests
 run_tests: tests
@@ -21,3 +22,4 @@ run_tests: tests
 .PONNY: clean
 clean:
 	rm -rvf src/*.o
+	rm -rvf tests/*.o
