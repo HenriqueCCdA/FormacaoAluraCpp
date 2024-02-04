@@ -7,8 +7,19 @@ void * operator new(size_t bytes)
     return malloc(bytes);
 }
 
+void ExibeNome(std::string_view nome)
+{
+    std::cout << nome << std::endl;
+}
+
 int main() {
     std::cout << "---------------------------" << std::endl;
-    std::string meuNomeCompleto = "1234567890123456";
+    std::string casal = "Carlos Vinicius dos Santos Dias & Patricia Feiras Graça";
+    std::string_view meuNome(casal.c_str(), casal.find('&')-1);
+    std::string_view nomeEsposa(casal.c_str() + casal.find('&') + 2);
+
+    ExibeNome(meuNome);
+    ExibeNome(nomeEsposa);
+    ExibeNome("Umm nome qualquer sem estar na heap!");
     return 0;
 }
