@@ -6,3 +6,4 @@
 4. [Curso de Orientação a Objetos com C++: trabalhando com herança](https://cursos.alura.com.br/course/c-plus-plus-orientacao-objetos-heranca): Inicio: 19/01/2024 - Fim: 25/01/2024
 5. [Curso de Avançando com C++: Enum, templates e mais recursos](https://cursos.alura.com.br/course/c-plus-plus-enum-templates-recursos): Inicio: 25/01/2024 - Fim: 30/01/2024
 6. [Curso de C++ e TDD: testes de unidade com Catch2](https://cursos.alura.com.br/course/c-plus-plus-tdd-testes-unidade-catch2): Inicio: 30/01/2024 - Fim: 04/02/2024
+7. [Curso de Avançando com C++: performance e otimização](https://cursos.alura.com.br/course/c-plus-plus-performance-otimizacao): Inicio: 04/02/2024 - Fim: --/--/----
