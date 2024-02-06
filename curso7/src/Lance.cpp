@@ -1,8 +1,14 @@
 #include "Lance.hpp"
+#include <iostream>
 
 Lance::Lance(Usuario usuario, float valor): usuario(usuario), valor(valor)
 {
 }
+
+// Lance::Lance(const Lance&  outroLance) : usuario(outroLance.usuario), valor(outroLance.valor)
+// {
+//     std::cout << "Executando cópia de lance de valor " << valor << std::endl;
+// }
 
 float Lance::recuperaValor() const
 {

@@ -12,6 +12,7 @@ public:
     Lance(Usuario usuario, float valor);
     float recuperaValor() const;
     std::string recuperaNomeUsuario() const;
+
 };
 
 #endif /* Lance_hpp */
